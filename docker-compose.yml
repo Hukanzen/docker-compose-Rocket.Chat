@@ -1,0 +1,25 @@
+version: '3'
+
+services: 
+  rocketchat:
+    image: rocket.chat
+    volumes: 
+      - ./uploads:/app/uploads
+    depends_on: 
+      - db
+    ports:
+      - 3000:3000
+    environment:
+      # RocketChatのURL(ここではホスト名をlocalhostとしています)
+      - ROOT_URL=http://localhost
+      # アカウントのメールアドレスのドメインチェックを無効化
+      - Accounts_UseDNSDomainCheck=false
+    links:
+      - db:db
+  
+  db:
+    image: mongo:3.0
+    volumes:
+      - ./data/db:/data/db
+      - ./data/dump:/dump
+    command: mongod --smallfiles
