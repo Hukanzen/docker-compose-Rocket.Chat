@@ -5,4 +5,4 @@ cd $DIR
 
 ./docker_stop.sh
 ./docker_rm.sh
-rm -rf ./data/db/* ./data/dump/* ./uploads/* 
+# rm -rf ./data/db/* ./data/dump/* ./uploads/* 
