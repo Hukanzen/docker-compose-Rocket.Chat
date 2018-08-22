@@ -1,4 +1,4 @@
 #!/bin/bash 
 
-docker rm rocketchat.mongo
+docker rm rocketchat.db
 docker rm rocketchat.rocketchat
